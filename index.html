@@ -195,6 +195,7 @@
 			</div>
 		</noscript>
 		<section>
+
 			<div class="nice-form-group">
 				<!--label>Message</label-->
 				<textarea rows="5" placeholder="Your message" ></textarea>
@@ -207,14 +208,14 @@
 		<script>
 			const query = query => document.querySelector(query);
 			const pubkey =
-		
-				fetch('pubkey.txt')
-				.then(response => response.text())
-				.then((data) => {
 			
-				});
-				console.log(pubkey)
+			fetch('http://localhost/pubkey.txt')
+			.then(response => response.text())
+			.then((data) => {
+				
+			});
 			
+			console.log(pubkey)
 			query('#submit').addEventListener('click', () => {
 				
 				const publicKey = openpgp.readKey({ armoredKey: pubkey });
@@ -227,7 +228,7 @@
 		</script>
 		
 		<footer>
-			<a href="pubkey.txt">Key</a> | <a href="https://github.com/CILSecurity/testform">Source</a>
+			<a href="pubkey.txt">Key</a> | <a href="">Source</a>
 		</footer>
 	</body>
 </html>
