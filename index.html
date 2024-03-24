@@ -195,22 +195,6 @@
 			</div>
 		</noscript>
 		<section>
-			<h1>
-				<svg fill="#fff80f" height="20px" width="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-				viewBox="0 0 330 330" xml:space="preserve">
-					<g id="XMLID_509_">
-						<path id="XMLID_510_" d="M65,330h200c8.284,0,15-6.716,15-15V145c0-8.284-6.716-15-15-15h-15V85c0-46.869-38.131-85-85-85
-						S80,38.131,80,85v45H65c-8.284,0-15,6.716-15,15v170C50,323.284,56.716,330,65,330z M180,234.986V255c0,8.284-6.716,15-15,15
-						s-15-6.716-15-15v-20.014c-6.068-4.565-10-11.824-10-19.986c0-13.785,11.215-25,25-25s25,11.215,25,25
-						C190,223.162,186.068,230.421,180,234.986z M110,85c0-30.327,24.673-55,55-55s55,24.673,55,55v45H110V85z"/>
-					</g>
-				</svg>
-				Submit a confidential report
-			</h1>
-			<p>You can use this form to raise any issues with policies, procedures or personnel that you don't want to report in person or via identifiable channels.</p>
-			<p>When you submit a message it is encrypted in your browser then sent to me, only I can read it. No data leaves your device unencrypted or is recoverable after you close this tab.</p>
-			<p>I do not collect <a href="https://browserleaks.com/ip" target="_blank">your identifiable information</a> but it could be recoverable. If you want to remain anonymous you should consider submitting this form using <a href="https://www.torproject.org/download/" target="_blank">Tor Browser</a>.</p>
-			
 			<div class="nice-form-group">
 				<!--label>Message</label-->
 				<textarea rows="5" placeholder="Your message" ></textarea>
@@ -227,9 +211,9 @@
 				fetch('pubkey.txt')
 				.then(response => response.text())
 				.then((data) => {
-				console.log(data)
-				});
 			
+				});
+				console.log(pubkey)
 			
 			query('#submit').addEventListener('click', () => {
 				
@@ -243,7 +227,7 @@
 		</script>
 		
 		<footer>
-			<a href="pubkey.txt">Key</a> | <a href="">Source</a>
+			<a href="pubkey.txt">Key</a> | <a href="https://github.com/CILSecurity/testform">Source</a>
 		</footer>
 	</body>
 </html>
