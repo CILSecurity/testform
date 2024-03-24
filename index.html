@@ -209,20 +209,17 @@
 			const query = query => document.querySelector(query);
 			const pubkey =
 			
-			fetch('pubkey.txt')
-			.then(response => response.text())
-			.then((data) => {
-				
-			});
+			fetch('pubkey.txt');
 			
 			console.log(pubkey)
+			
 			query('#submit').addEventListener('click', () => {
 				
 				const publicKey = openpgp.readKey({ armoredKey: pubkey });
 				
 				const encrypted = openpgp.encrypt({
 					message: openpgp.createMessage({ text: 'Hello, World!' }), // input as Message object
-					encryptionKeys: publicKey,
+					encryptionKeys: publicKey
 				});
 			});
 		</script>
