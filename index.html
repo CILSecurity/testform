@@ -207,9 +207,7 @@
 		</section>
 		<script>
 			const query = query => document.querySelector(query);
-			const pubkey =
-			
-			fetch('pubkey.txt');
+			const pubkey = fetch('pubkey.txt').text();
 			
 			console.log(pubkey)
 			
