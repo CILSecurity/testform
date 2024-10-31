@@ -1,83 +1,38 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>GPG Online</title>
+		<title>Submit a Report</title>
 		<script src="openpgp.min.js"></script>
+		<script>const formaction = "https://formsubmit.co/28fe7f8f072fbe5fb310e69887960eaf";</script>
 		<style>
-			.nice-form-group {
-			--nf-input-size:1rem;
-			--nf-input-font-size:calc(var(--nf-input-size)*0.875);
-			--nf-small-font-size:calc(var(--nf-input-size)*0.875);
-			--nf-input-font-family:inherit;
-			--nf-label-font-family:inherit;
-			--nf-input-color:#20242f;
-			--nf-input-border-radius:0.25rem;
-			--nf-input-placeholder-color:#929292;
-			--nf-input-border-color:#c0c4c9;
-			--nf-input-border-width:1px;
-			--nf-input-border-style:solid;
-			--nf-input-border-bottom-width:2px;
-			--nf-input-focus-border-color:#3b4ce2;
-			--nf-input-background-color:#f9fafb;
-			--nf-invalid-input-border-color:var(--nf-input-border-color);
-			--nf-invalid-input-background-color:var(--nf-input-background-color);
-			--nf-invalid-input-color:var(--nf-input-color);
-			--nf-valid-input-border-color:var(--nf-input-border-color);
-			--nf-valid-input-background-color:var(--nf-input-background-color);
-			--nf-valid-input-color:inherit;
-			--nf-invalid-input-border-bottom-color:red;
-			--nf-valid-input-border-bottom-color:green;
-			--nf-label-font-size:var(--nf-small-font-size);
-			--nf-label-color:#374151;
-			--nf-label-font-weight:500;
-			--nf-slider-track-background:#dfdfdf;
-			--nf-slider-track-height:0.25rem;
-			--nf-slider-thumb-size:calc(var(--nf-slider-track-height)*4);
-			--nf-slider-track-border-radius:var(--nf-slider-track-height);
-			--nf-slider-thumb-border-width:2px;
-			--nf-slider-thumb-border-focus-width:1px;
-			--nf-slider-thumb-border-color:#fff;
-			--nf-slider-thumb-background:var(--nf-input-focus-border-color);
+			
+			
+			.form-group {
+			--input-size:1rem;
+			--buttoncolour:rgb(47, 206, 72);
 			display: block;
-			margin-top: calc(var(--nf-input-size)*1.5);
+			margin-top: calc(var(--input-size)*1.5);
 			line-height: 1;
-			white-space: nowrap;
-			--switch-orb-size:var(--nf-input-size);
-			--switch-orb-offset:calc(var(--nf-input-border-width)*2);
-			--switch-width:calc(var(--nf-input-size)*2.5);
-			--switch-height:calc(var(--nf-input-size)*1.25 + var(--switch-orb-offset));
 			}
 			
 			html {
-			font-size: var(--nf-input-size);
+			font-size: var(--input-size);
 			box-sizing: border-box;
+			font-family: Roboto, sans-serif;
 			}
+			
 			body {
 			background: #f3f0e7;
-			font-family: Roboto, sans-serif;
 			color: #4b5563;
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
 			}
+			
 			path {
 			stroke: #000000;
 			stroke-width: 0.1em;
 			}
 			
-			.nice-form-group > label {
-			font-weight: var(--nf-label-font-weight);
-			display: block;
-			color: var(--nf-label-color);
-			font-size: var(--nf-label-font-size);
-			font-family: var(--nf-label-font-family);
-			margin-bottom: calc(var(--nf-input-size)/2);
-			white-space: normal;
-			}
-			
-			.nice-form-group > textarea {
-			resize: vertical;
-			width:100%;
-			}
 			section {
 			background: #fff;
 			margin:0 auto;
@@ -86,106 +41,71 @@
 			border-radius: 0.75rem;
 			line-height: 1.6;
 			overflow: hidden;
-			margin-bottom: 2rem;
+			margin-bottom: 1rem;
 			position: relative;
 			font-size: 0.875rem;
 			box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+			}	
+			
+			h1 {
+			margin-top:0;
 			}
 			
-			.nice-form-group > input[type=file] {
-			background: rgba(0, 0, 0, 0.025);
-			padding: var(--nf-input-size);
-			display: block;
-			width: 100%;
-			border-radius: var(--nf-input-border-radius);
-			border: 1px dashed var(--nf-input-border-color);
-			outline: none;
+			subtitle {
+			font-size: 0.8em;
+			color: #0000EE;
+			text-decoration: underline;
 			cursor: pointer;
+			-webkit-user-select: none; /* Safari */
+			-ms-user-select: none; /* IE 10 and IE 11 */
+			user-select: none; /* Standard syntax */
+			}
+			.psinfo{
+			padding-left: 1em;
+			font-size: 0.8em;
+			}			
+			.form-group > textarea {
+			resize: vertical;
+			width:98.5%;
 			}
 			
-			.nice-form-group > input[type=file]:focus, .nice-form-group > input[type=file]:hover {
-			border-color: var(--nf-input-focus-border-color);
-			}
-			
-			.nice-form-group > input[type=file]::file-selector-button {
-			background: var(--nf-input-focus-border-color);
-			border: 0;
-			-webkit-appearance: none;
-			-moz-appearance: none;
-			appearance: none;
-			padding: 0.5rem;
-			border-radius: var(--nf-input-border-radius);
-			color: #fff;
-			margin-right: 1rem;
-			outline: none;
-			font-family: var(--nf-input-font-family);
-			cursor: pointer;
-			}
-			
-			.nice-form-group > input[type=file]::-webkit-file-upload-button {
-			background: var(--nf-input-focus-border-color);
-			border: 0;
-			-webkit-appearance: none;
-			appearance: none;
-			padding: 0.5rem;
-			border-radius: var(--nf-input-border-radius);
-			color: #fff;
-			margin-right: 1rem;
-			outline: none;
-			font-family: var(--nf-input-font-family);
-			cursor: pointer;
-			}
-			
-			.nice-form-group > input[type="submit"] {
-			background: rgb(47, 206, 72);
-			padding: var(--nf-input-size);
-			display: block;
-			width: 100%;
-			color: #fff;
-			border-radius: var(--nf-input-border-radius);
+			.form-group > nobutt {			
+			background: rgb(249, 249, 249);
+			color: #ccc;
+			padding: var(--input-size);
+			border-radius: 0.25rem;
 			border: 1px var(--nf-input-border-color);
-			outline: none;
+			text-align: center;
+			}	
+			
+			.form-group > butt {
+			background: var(--buttoncolour);
+			color: #fff;			
+			padding: var(--input-size);
+			border-radius: 0.25rem;
+			/*! border: 1px solid rgb(112, 191, 90); */
 			cursor: pointer;
+			text-align: center;
+			  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 			}
 			
-			.nice-form-group > input[type=submit]:focus, .nice-form-group > input[type=submit]:hover {
+			.form-group > butt:focus, .form-group > butt:hover {
 			border-color: var(--nf-input-focus-border-color);
+			filter: brightness(104%);
 			}
 			
-			.nice-form-group > input[type=submit]::file-selector-button {
-			background: var(--nf-input-focus-border-color);
-			border: 0;
-			-webkit-appearance: none;
-			-moz-appearance: none;
-			appearance: none;
-			padding: 0.5rem;
-			border-radius: var(--nf-input-border-radius);
-			color: #fff;
-			margin-right: 1rem;
-			outline: none;
-			font-family: var(--nf-input-font-family);
-			cursor: pointer;
-			}
-			
-			.nice-form-group > input[type=submit]::-webkit-file-upload-button {
-			background: var(--nf-input-focus-border-color);
-			border: 0;
-			-webkit-appearance: none;
-			appearance: none;
-			padding: 0.5rem;
-			border-radius: var(--nf-input-border-radius);
-			color: #fff;
-			margin-right: 1rem;
-			outline: none;
-			font-family: var(--nf-input-font-family);
-			cursor: pointer;
+			.form-group > butt:active  {
+			border-color: var(--nf-input-focus-border-color);
+			filter: brightness(108%);
 			}
 			
 			footer {
 			text-align: center;
-			font-family: var(--nf-input-font-family);
-			font-size: var(--nf-small-font-size);
+			font-size: 0.8em;
 			}
+
 		</style>
 	</head>
 	<body>
@@ -195,36 +115,86 @@
 			</div>
 		</noscript>
 		<section>
-
-			<div class="nice-form-group">
-				<!--label>Message</label-->
-				<textarea rows="5" placeholder="Your message" ></textarea>
+			<h1>
+				<svg fill="#fff80f" height="20px" width="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+				viewBox="0 0 330 330" xml:space="preserve">
+					<g id="XMLID_509_">
+						<path id="XMLID_510_" d="M65,330h200c8.284,0,15-6.716,15-15V145c0-8.284-6.716-15-15-15h-15V85c0-46.869-38.131-85-85-85
+						S80,38.131,80,85v45H65c-8.284,0-15,6.716-15,15v170C50,323.284,56.716,330,65,330z M180,234.986V255c0,8.284-6.716,15-15,15
+						s-15-6.716-15-15v-20.014c-6.068-4.565-10-11.824-10-19.986c0-13.785,11.215-25,25-25s25,11.215,25,25
+						C190,223.162,186.068,230.421,180,234.986z M110,85c0-30.327,24.673-55,55-55s55,24.673,55,55v45H110V85z"/>
+					</g>
+				</svg>
+				Submit a Report
+			</h1>
+			<p>You can use this form to raise any issues with policies, procedures or personnel that you don't want to report in person or via identifiable channels.</p>
+			<subtitle onclick="showInfo()">About Privacy and Security</subtitle>
+			<div class="psinfo" style="display: none;">
+				<p>Messages are encrypted in your browser then forwarded to us via a 3rd party. No data leaves your device unencrypted or is recoverable after you close this tab.</p>
+				<p>We do not collect <a href="https://browserleaks.com/ip" target="_blank">your identifiable information</a> but it could be recoverable by 3rd parties. If you want to remain anonymous you should consider submitting this form using the <a href="https://www.torproject.org/download/" target="_blank">Tor Browser</a>.</p>
+				<p>This website does not use cookies but a few were eaten during its development.</p>
 			</div>
-			<submit class="nice-form-group">
-				<input id="submit" type="submit" value="Submit">
-			</submit>
-			
+			<div class="form-group">
+				<!--label>Message</label-->
+				<textarea rows="10" placeholder="Try and be as detailed as possible, answering who, what, when, where, how" onkeyup="checkButton()" ></textarea>
+			</div>
+			<div class="form-group">
+				<butt style="display: none;">Submit</butt>
+				<nobutt style=>Submit</nobutt>
+			</div>
 		</section>
 		<script>
 			const query = query => document.querySelector(query);
-			const pubkey = fetch('pubkey.txt').text();
 			
-			console.log(pubkey)
+			query('butt').addEventListener('click', () => encryptAndSend());
 			
-			query('#submit').addEventListener('click', () => {
-				
-				const publicKey = openpgp.readKey({ armoredKey: pubkey });
-				
-				const encrypted = openpgp.encrypt({
-					message: openpgp.createMessage({ text: 'Hello, World!' }), // input as Message object
-					encryptionKeys: publicKey
+			async function encryptAndSend()
+			{
+				query('textarea').disabled = "true";
+				query('butt').style.background="rgb(47, 117, 206)";
+				query('butt').innerHTML = "Encrypting...";
+				const response = await fetch('pubkey.txt');
+				const encrypted = await openpgp.encrypt({
+					message: await openpgp.createMessage({ text: query('textarea').value }),
+					encryptionKeys: await openpgp.readKey({ armoredKey: await response.text() }),
 				});
-			});
+				query('textarea').value = encrypted;
+				query('butt').innerHTML = "Sending...";
+				const form = document.createElement('form');
+				form.method = 'post';
+				form.action = formaction;
+				const hiddenField = document.createElement('input');
+				hiddenField.type = 'hidden';
+				hiddenField.name = 'message';
+				hiddenField.value = encrypted;
+				form.appendChild(hiddenField);
+				document.body.appendChild(form);
+				form.submit();
+			}
+			
+			function checkButton() {
+				if(query('textarea').value==="") { 
+					query('butt').style.display = "none";
+					query('nobutt').style.display = "block";
+					} else { 
+					query('butt').style.display = "block";
+					query('nobutt').style.display = "none";
+				}
+			}
+			checkButton();
+			
+			function showInfo() {
+				if (query('.psinfo').style.display === "block") {
+					query('.psinfo').style.display = "none";
+					} else {
+					query('.psinfo').style.display = "block";
+				}
+			};
+			
 		</script>
 		
 		<footer>
-			<a href="pubkey.txt">Key</a> | <a href="https://github.com/CILSecurity/testform/">Source</a>
+			<a href="pubkey.txt">PGP</a> | <a href="https://github.com/CILSecurity/testform">Source</a>
 		</footer>
 	</body>
 </html>
-
