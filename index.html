@@ -145,11 +145,16 @@
 		</section>
 		<script>
 			const query = query => document.querySelector(query);
+			let isSending = false;
 			
 			query('butt').addEventListener('click', () => encryptAndSend());
 			
 			async function encryptAndSend()
 			{
+				if(isSending) 
+					return;
+				isSending = true;
+				
 				query('textarea').disabled = "true";
 				query('butt').style.background="rgb(47, 117, 206)";
 				query('butt').innerHTML = "Encrypting...";
